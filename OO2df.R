@@ -180,8 +180,10 @@ OO2df <- function(datafile, version = "1") {
       zz <- textConnection(data.raw, "r")
       data <- data.frame(stringsAsFactors = FALSE,
                          sampleid,
-                         fnamesplit[[1]][3],
-                         fnamesplit[[1]][4],
+                         as.numeric(fnamesplit[[1]][3]), #minutes
+                         fnamesplit[[1]][4], #rep
+                         paste(fnamesplit[[1]][3], fnamesplit[[1]][4], sep = "-"),
+                         as.numeric(NA),
                          matrix(scan(zz, 
                                      what = numeric()), 
                                 ncol = 2, 
@@ -202,6 +204,8 @@ OO2df <- function(datafile, version = "1") {
          c("sampleid", 
            "minutes", 
            "rep", 
+           "idunique",
+           "n_spectra",
            "wavelength", 
            "intensity", 
            names(header.param.rexp))
