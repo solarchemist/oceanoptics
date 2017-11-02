@@ -25,4 +25,3 @@ The internals of this function need to be rewritten.
    Also, the argument "version" is kind of weird and hard to
    understand, even for me.
 }
-

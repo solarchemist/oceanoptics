@@ -37,4 +37,3 @@ peak.exp specification:
    >> wavelength
    >> intensity
 }
-

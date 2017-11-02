@@ -34,4 +34,3 @@ For this specific situation:
    So, averages over "rep". To distinguish from non-averaged
    spectra, we set new rep to the string "avg" (below).
 }
-

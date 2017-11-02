@@ -2,4 +2,6 @@
 
 export(AverageSpectra)
 export(OO2df)
+export(bandgap)
+export(diameter)
 export(peak2degrad)
