@@ -16,7 +16,21 @@ diameter <- function(bandgap, sc = "ZnO") {
 
    # check the inputs
    if (sc != "ZnO") stop("Error: At this time, this function only supports ZnO")
-   if (any(bandgap < c)) stop("Error: bandgap must be greater or equal to the bulk band gap of ZnO (3.30 eV)")
+   # handling of band gap values less than ZnO bulk
+   unphysical.bandgaps <- which(bandgap < c)
+   if (length(unphysical.bandgaps) > 0) {
+      # print an informative warning message
+      warning(common::simpleCap(common::numbers2words(length(unphysical.bandgaps))),
+              " (", length(unphysical.bandgaps), ")",
+              ifelse(length(unphysical.bandgaps) > 1,
+                     " supplied band gap values are less than ",
+                     " supplied band gap value is less than "),
+              c, " eV\n",
+              ifelse(length(unphysical.bandgaps) > 1,
+                     "Treating them as NAs and moving on.",
+                     "Treating it as NA and moving on."))
+      bandgap[unphysical.bandgaps] <- as.numeric(NA)
+   }
 
    # calculate diameter
    diameter <- (2 * a) / (-b + sqrt(b^2 - 4 * a * (c - bandgap)))
