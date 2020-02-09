@@ -6,16 +6,20 @@
 #' @param bandgap numeric, in eV (vector)
 #'    Band gap may not be smaller than the bulk band gap of the material (3.30 eV for ZnO)
 #' @param sc semiconductor, string (function only supports ZnO)
+#' @param a parameter a, numeric (optional, default a = 3.940)
+#' @param b parameter b, numeric (optional, default b = 0.293)
+#' @param c parameter c, numeric (optional, default c = 3.30)
 #'
 #' @return diameter, in nanometres (vector)
 #' @export
-diameter <- function(bandgap, sc = "ZnO") {
-   c <- 3.30
-   b <- 0.293
-   a <- 3.940
-
-   # check the inputs
+diameter <- function(bandgap, sc = "ZnO", a, b, c) {
+   # set parameters a, b, c if the user did not pass them as arguments
+   if (missing(a)) {a <- 3.940}
+   if (missing(b)) {b <- 0.293}
+   if (missing(c)) {c <- 3.30}
+   # check the other arguments
    if (sc != "ZnO") stop("Error: At this time, this function only supports ZnO")
+
    # handling of band gap values less than ZnO bulk
    unphysical.bandgaps <- which(bandgap < c)
    if (length(unphysical.bandgaps) > 0) {
@@ -49,15 +53,18 @@ diameter <- function(bandgap, sc = "ZnO") {
 #'
 #' @param diameter numeric, in nanometre (vector)
 #' @param sc semiconductor, string (function only supports ZnO)
+#' @param a parameter a, numeric (optional, default a = 3.940)
+#' @param b parameter b, numeric (optional, default b = 0.293)
+#' @param c parameter c, numeric (optional, default c = 3.30)
 #'
 #' @return bandgap, in eV (vector)
 #' @export
-bandgap <- function(diameter, sc = "ZnO") {
-   c <- 3.30
-   b <- 0.293
-   a <- 3.940
-
-   # check the inputs
+bandgap <- function(diameter, sc = "ZnO", a, b, c) {
+   # set parameters a, b, c if the user did not pass them as arguments
+   if (missing(a)) {a <- 3.940}
+   if (missing(b)) {b <- 0.293}
+   if (missing(c)) {c <- 3.30}
+   # check the other arguments
    if (sc != "ZnO") stop("Error: At this time, this function only supports ZnO")
 
    # calculate bandgap

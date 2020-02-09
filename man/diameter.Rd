@@ -4,13 +4,19 @@
 \alias{diameter}
 \title{Diameter of ZnO nanoparticles from optical band gap}
 \usage{
-diameter(bandgap, sc = "ZnO")
+diameter(bandgap, sc = "ZnO", a, b, c)
 }
 \arguments{
 \item{bandgap}{numeric, in eV (vector)
 Band gap may not be smaller than the bulk band gap of the material (3.30 eV for ZnO)}
 
 \item{sc}{semiconductor, string (function only supports ZnO)}
+
+\item{a}{parameter a, numeric (optional, default a = 3.940)}
+
+\item{b}{parameter b, numeric (optional, default b = 0.293)}
+
+\item{c}{parameter c, numeric (optional, default c = 3.30)}
 }
 \value{
 diameter, in nanometres (vector)
