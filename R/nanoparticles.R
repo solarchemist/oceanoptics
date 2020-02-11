@@ -21,7 +21,7 @@ diameter <- function(bandgap, sc = "ZnO", a, b, c) {
    if (sc != "ZnO") stop("Error: At this time, this function only supports ZnO")
 
    # handling of band gap values less than ZnO bulk
-   unphysical.bandgaps <- which(bandgap < c)
+   unphysical.bandgaps <- which(bandgap < 3.30)
    if (length(unphysical.bandgaps) > 0) {
       # print an informative warning message
       warning(common::simpleCap(common::numbers2words(length(unphysical.bandgaps))),
