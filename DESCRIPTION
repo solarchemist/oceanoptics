@@ -1,7 +1,7 @@
 Package: oceanoptics
 Type: Package
 Title: Import OceanOptics spectra files (in ASCII format)
-Version: 0.0.0.9004
+Version: 0.1.0.9000
 Authors@R: person("Taha", "Ahmed", email = "taha@chepec.se", role = c("aut", "cre"))
 Description: Import OceanOptics UV/Vis spectra (in ASCII format) to dataframe.
 License: GPL-3

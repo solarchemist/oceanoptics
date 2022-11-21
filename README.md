@@ -1,5 +1,8 @@
 # oceanoptics
 
-This R package imports OceanOptics processed spectrum files to dataframe (along with most of the OceanOptics metadata).
+This R package ingests OceanOptics processed spectra (csv files) to
+R dataframe along with the spectrometer's metadata.
 
-The package also includes some utility functions, such as functions to calculate ZnO nanoparticle diameter from optical band gaps or vice versa.
+The package also includes some utility functions I have developed, such as
+functions to calculate ZnO nanoparticle diameter from optical band gaps or
+vice versa.
